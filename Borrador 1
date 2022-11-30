@@ -1,0 +1,348 @@
+#include <iostream>
+#include <string>
+
+#define MAX 10
+
+using namespace std;
+
+void Inicio(int o);
+void Nombre(string name[]);
+void Apellidos(string lastname[]);
+void Correo(string email[]);
+void Usuario(string user[]);
+void ContrasenaRegistro(string password[], string passwordos[]);
+void ContrasenaInicio(string passwordinicio[]);
+
+void empresaActividadEconomica(int opcion);
+void empresaTamano(int opcion);
+void empresaServicio(int opcion);
+void empresapresupuesto(int opcion);
+
+void CategoriaInfluencer(int opcion);
+void ServicioInfluencer(int opcion);
+void PresupuestoInfluencer(int opcion);
+void cargarRedSocial(string RS[]);
+void mostrarRedSocial(string RS[]);
+void Seguidores(int followers);
+
+int main()
+{
+ 	int opcion, s;
+ 	string nombre[MAX];
+	Inicio(opcion);
+	cout<<"SELECCIONE QUE TIPO DE CUENTA ES:"<<endl;
+	cout<<"EMPRESA"<<endl;
+	cout<<"[1] Siguiente"<<endl;
+	cout<<"INFLUENCER"<<endl;
+	cout<<"[2] Siguiente"<<endl;
+	cout<<"[0] Volver a Inicio"<<endl;
+  	cin>>opcion;
+	if(opcion==1)
+ 	{
+		cout<<"Actividad Económica"<<endl;
+	    cout<<"___"<<endl;
+	    empresaActividadEconomica(opcion);
+	    cout<<"___"<<endl;
+	    cout<<"Tamaño"<<endl;
+	    cout<<"___"<<endl;
+	    empresaTamano(opcion);  
+	    cout<<"___"<<endl;
+	    cout<<"Tipo de servicio"<<endl;
+	    cout<<"___"<<endl;
+	    empresaServicio(opcion);  
+	    cout<<"___"<<endl;
+	    cout<<"Presupuesto"<<endl;
+	    cout<<"___"<<endl;    
+	    empresapresupuesto(opcion);
+	    cout<<"Su cuenta ha sido registrada con ÉXITO"<<endl;
+	}
+	if(opcion==2)
+	{
+	    cout<<"BIENVENIDO INFLUENCER!"<<endl;
+	    cout<<"Categoria"<<endl;
+	    cout<<"___________________"<<endl;
+	    CategoriaInfluencer(opcion);
+	    cargarRedSocial(nombre);
+	    Seguidores(s);  
+	    cout<<"___________________"<<endl;
+	    cout<<"Servicio"<<endl;
+	    cout<<"___________________"<<endl;
+	    ServicioInfluencer(opcion);
+	    cout<<"___________________"<<endl;
+	    cout<<"Presupuesto"<<endl;
+	    cout<<"___________________"<<endl;    
+	    PresupuestoInfluencer(opcion);
+	    cout<<"Su cuenta ha sido registrada con EXITO"<<endl;
+	}
+	else
+  	{
+    	Inicio(opcion);
+  	}	
+  	return 0;
+}
+void empresaActividadEconomica(int opcion)
+{
+  int categoria;
+  string departamento;
+  cout<<"Seleccione a cual de las siguientes actividades económicas pertenece su empresa:"<<endl;
+  cout<<"[1]   Industrial"<<endl;
+  cout<<"[2]   Agrícola"<<endl;
+  cout<<"[3]   Ganadería"<<endl;
+  cout<<"[4]   Agro Industriales"<<endl;
+  cout<<"[5]   Minera"<<endl;
+  cout<<"[6]   Comercio Minorista"<<endl;
+  cout<<"[7]   Comercio Mayorista"<<endl;
+  cout<<"[8]   Servicios"<<endl;  
+  cout<<"[9]   Construcción"<<endl;  
+  cout<<"[10]  Administración pública"<<endl;  
+  cout<<"___"<<endl;
+  cin>>categoria;
+  cout<<"___"<<endl;
+  cout<<"¿En qué departamento de Bolivia se encuentra ubicada su empresa?"<<endl;
+  cin>>departamento;
+  cout<<"___"<<endl;
+}
+
+void empresaTamano(int opcion)
+{
+  int trabajadores;
+  cout<<"¿Cuántos trabajadores tiene su empresa?"<<endl;
+  cin>>trabajadores;
+  if((trabajadores>0) && (trabajadores<=10))
+  {
+    cout<<"Es una MicroEmpresa"<<endl;
+  }
+  if((trabajadores>10) && (trabajadores<=49))
+  {
+    cout<<"Es una Pequeña Empresa"<<endl;
+  }
+  if((trabajadores>49) && (trabajadores<=250))
+  {
+  cout<<"Es una Mediana Empresa"<<endl;
+  }
+  if(trabajadores>250)
+  {
+  cout<<"Es una Grande Empresa"<<endl;
+  }
+}
+void empresaServicio(int opcion)
+{
+  int servicio;
+  cout<<"¿Qué servicio desearía adquirir?"<<endl;
+  cout<<"  Seleccione uno"<<endl;
+  cout<<"[1]   Post en Redes Sociales"<<endl;
+  cout<<"[2]   Video en Redes Sociales"<<endl;
+  cout<<"[3]   Maestro de Ceremonia"<<endl;
+  cout<<"[4]   Participación en Eventos"<<endl;
+  cin>>servicio;
+  if(servicio==1)
+  {
+    string evento1;
+    cout<<"¿En qué Red Social le interesaría publicitar?"<<endl;
+    cin>>evento1;
+  }  
+  if(servicio==2)
+  {
+    string evento2;
+    cout<<"¿En qué Red Social le interesaría publicitar?"<<endl;
+    cin>>evento2;
+  }
+  if(servicio==3)
+  {
+      int fecha;
+    string mes;
+    cout<<"¿En qué día y mes se realizará el evento?"<<endl;
+    cout<<"Día: ";
+    cin>>fecha;
+    cout<<"Mes: ";
+    cin>>mes;
+    
+  }  
+  
+  if(servicio==4)
+  {
+    int evento4;
+    string otroevento;
+    cout<<"¿En qué tipo evento le intersaría que participe el/la influencer?"<<endl;
+    cout<<"[1] FexpoCruz"<<endl;
+    cout<<"[2] Ferias automotrices"<<endl;
+    cout<<"[3] Ferias agronomicas"<<endl;
+    cout<<"[4] Ferias empresariales"<<endl;
+    cout<<"[5] Ferias universitarias"<<endl;
+    cout<<"[6] Otro"<<endl;
+    cin>>evento4;
+    if(evento4==6)
+    {
+      cout<<"¿En qué otro evento le interesaría que participe el/la influencer?"<<endl;
+      cin>>otroevento;
+    }
+  }  
+}
+void empresapresupuesto(int opcion)
+{
+  int precio;
+  cout<<"¿Cuánto estaría dispuesto a pagar por el tipo de servicio que requiere? DIGITE EL PRECIO EN DÓLARES"<<endl;
+  cin>>precio;
+}
+void CategoriaInfluencer(int opcion)
+{
+  int seguidores,c;
+  cout<<"Seleccione a que categoria pertenece"<<endl;
+  cout<<"[1]   Celebrity"<<endl;
+  cout<<"[2]   Fitness"<<endl;
+  cout<<"[3]   Gamer"<<endl;
+  cout<<"[4]   Foodie"<<endl;
+  cout<<"[5]   Entretenimiento"<<endl;
+  cout<<"[6]   Viaje"<<endl;
+  cout<<"[7]   Moda"<<endl;      
+  cout<<"___________________"<<endl;
+  cin>>c;
+}
+
+void Seguidores(int followers)
+{
+  int s;
+  cout<<"Cuantos seguidores tiene en esa red social?"<<endl;
+  cin>>s;
+  if((s>0) && (s<=10000))
+  {
+    cout<<" - Es un Nano Influencer"<<endl;
+  }
+  if((s>10000) && (s<=100000))
+  {
+    cout<<" - Es un Micro Influencer"<<endl;
+  }
+  if((s>100000) && (s<=1000000))
+  {
+  cout<<" - Es un Macro Influencer"<<endl;
+  }
+  if(s>1000000)
+  {
+  cout<<" - Es un Mega Influencer"<<endl;
+  }
+}
+
+void ServicioInfluencer(int opcion)
+{
+  int servicio;
+  cout<<"Que servicio brinda?"<<endl;
+  cout<<"  Selecciones uno"<<endl;
+  cout<<"[1]   Post en Redes Sociales"<<endl;
+  cout<<"[2]   Video en Redes Sociales"<<endl;
+  cout<<"[3]   Maestro de Ceremonia"<<endl;
+  cout<<"[4]   Participacion en Eventos"<<endl;
+  cin>>servicio;
+  if(servicio==4)
+  {
+    int evento;
+    string otroevento;
+    cout<<"En que eventos suele participar?"<<endl;
+    cout<<"[1] FexpoCruz"<<endl;
+    cout<<"[2] Ferias automotrices"<<endl;
+    cout<<"[3] Ferias agronomicas"<<endl;
+    cout<<"[4] Ferias empresariales"<<endl;
+    cout<<"[5] Ferias universitarias"<<endl;
+    cout<<"[6] Otro"<<endl;
+    cin>>evento;
+    if(evento==6)
+    {
+      cout<<"En que otro evento ha participado?"<<endl;
+      cin>>otroevento;
+    }
+  }  
+}
+void PresupuestoInfluencer(int opcion)
+{
+  int precio;
+  cout<<"Cuanto cobra por su servico de Influencer? EN DOLARES"<<endl;
+  cin>>precio;
+}
+
+void cargarRedSocial(string RS[])
+{
+  string i;
+  cout<<"En que red social trabaja?"<<endl;
+  cin>>i;
+  cout<<"Red Social ["<<i<<"]"<<endl;
+}
+void mostrarRedSocial(string RS[])
+{
+  int i;
+  cout<<"Red Social ["<<i<<"]"<<RS[i]<<endl;
+}
+void Nombre(string name[])
+{
+    string n;
+    cout<<"Nombre(s): "<<endl;
+    cin>>n;
+}
+void Apellidos(string lastname[])
+{
+    cin.ignore();
+    string a;
+    cout<<"Apellido(s): "<<endl;
+    getline(cin,a);
+}
+void Correo(string email[])
+{
+    cin.ignore();
+  string e;
+    cout<<"Correo electronico: "<<endl;
+    getline(cin,e);
+}
+void Usuario(string user[])
+{
+    string u;
+    cout<<"Usuario: "<<endl;
+    cin>>u;
+}
+void ContrasenaRegistro(string password[], string passwordos[])
+{
+    string x,p;
+    do {
+    cout<<"Contrasena: "<<endl;
+    cin>>x;
+    cout<<"Confirmar contrasena: "<<endl;
+    cin>>p;
+    if(x!=p)
+    {
+      cout<<"La contrasena no coincide, ingrese nuevamente: "<<endl;
+  }
+    }
+    while(x!=p);    
+}
+void ContrasenaInicio(string passwordinicio[])
+{
+    string c;
+    cout<<"Contrasena: "<<endl;
+    cin>>c;
+}
+void Inicio(int o)
+{
+	int opcion;
+	string u[MAX], n[MAX], a[MAX], e[MAX], c[MAX], p[MAX], x[MAX];
+	cout<<"INICIO"<<endl;
+    cout<<"[1] Iniciar sesion"<<endl;
+    cout<<"[2] Registrarse "<<endl;
+    cout<<"[0] Finalizar "<<endl;
+    cin>>opcion;
+    switch(opcion)
+    {
+        case 1:
+                Usuario(u);
+                ContrasenaInicio(c);
+                break;
+        case 2:
+                Nombre(n);
+                Apellidos(a);
+                Correo(e);
+                Usuario(u);
+                ContrasenaRegistro(x,p);
+                break;
+        case 0:
+                cout<<"Salir"<<endl;
+                break;
+        default:
+                cout<<"Opcion invalida"<<endl;
+	}
+}
